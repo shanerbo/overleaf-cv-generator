@@ -3,7 +3,7 @@ from pathlib import Path
 
 class CV:
     def __init__(self, file: str):
-        self.file = open(file).read()
+        self.file = open(file+'.txt').read()
         self.jobTitle = ""
         self.companyName = ""
         self.companyNameShort = ""

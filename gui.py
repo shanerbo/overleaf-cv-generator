@@ -4,12 +4,11 @@ from tkinter import messagebox
 
 
 def run() -> None:
-    cv = CV('./cv.txt')
     font = "Calibri 24"
     input_font = "Calibri 18"
 
     def validate():
-        if not (len(title.get()) != 0
+        if not (len(job_title.get()) != 0
                 and len(company_name.get()) != 0
                 and len(company_name_short.get()) != 0
                 and len(company_addr.get()) != 0
@@ -22,7 +21,16 @@ def run() -> None:
             messagebox.showinfo("Missing input", "Please fill all input")
 
     def populate():
-        return title.get()
+        cv = CV(input.get())
+        cv.set_job(job_title.get())
+        cv.set_company_name(company_name.get())
+        cv.set_company_name_short(company_name_short.get())
+        cv.set_company_addr(company_addr.get())
+        cv.set_company_province(company_province.get())
+        cv.set_receiver(receiver.get())
+        cv.set_receiver_title(receiver_title.get())
+        cv.set_receiver_last_name(receiver_last_name.get())
+        cv.populate(output.get())
 
     OptionList = [
         "Mr.",
@@ -32,20 +40,20 @@ def run() -> None:
     ]
 
     master = tk.Tk()
-    master.geometry("1080x800")
+    master.geometry("1090x800")
     tk.Label(master, text="Job title", font=font).grid(row=0)
     tk.Label(master, text="Company name (SAP INC)", font=font).grid(row=1)
     tk.Label(master, text="Company name short form(SAP)", font=font).grid(row=2)
     tk.Label(master, text="Company address (xxxx xx st)", font=font).grid(row=3)
-    tk.Label(master, text="Company province (Burnaby, BC, Canada", font=font).grid(row=4)
+    tk.Label(master, text="Company province (Burnaby, BC, Canada)", font=font).grid(row=4)
     tk.Label(master, text="Receiver (Jane Doe)", font=font).grid(row=5)
     tk.Label(master, text="Title (Ms.)", font=font).grid(row=6)
     tk.Label(master, text="Receiver Last Name (Doe)", font=font).grid(row=7)
-    tk.Label(master, text="input file (extension with txt)", font=font).grid(row=8)
+    tk.Label(master, text="input file (extension .txt is not needed)", font=font).grid(row=8)
     tk.Label(master, text="Output tex file (extension .tex is not needed)", font=font).grid(row=9)
     tk.Label(master, text="First paragraph", font=font).grid(row=10)
 
-    title = tk.Entry(master, font=input_font)
+    job_title = tk.Entry(master, font=input_font)
     company_name = tk.Entry(master, font=input_font)
     company_name_short = tk.Entry(master, font=input_font)
     company_addr = tk.Entry(master, font=input_font)
@@ -57,7 +65,7 @@ def run() -> None:
     output = tk.Entry(master, font=input_font)
     paragraph = tk.Text(master, font=input_font, height=10, width=40)
 
-    title.grid(row=0, column=1, ipady=3, ipadx=55)
+    job_title.grid(row=0, column=1, ipady=3, ipadx=55)
     company_name.grid(row=1, column=1, ipady=3, ipadx=55)
     company_name_short.grid(row=2, column=1, ipady=3, ipadx=55)
     company_addr.grid(row=3, column=1, ipady=3, ipadx=55)

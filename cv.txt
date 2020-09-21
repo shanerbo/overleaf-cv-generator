@@ -25,7 +25,7 @@ Re: $JOB_TITLE$
 Dear $RECEIVER_TITLE$ $RECEIVER_LAST_NAME$,
 \vspace{5mm}
 \newline
-As the world of technology is expanding quickly, $COMPANY_NAME_SHORT$ has became a leading company that develops business software solution to help enterprises manage business operations and customers relations. Being a computer science student with a strong interest in new technologies, I am deeply impressed and admired by how $COMPANY_NAME_SHORT$ has developed the most advanced technologies such as $COMPANY_NAME_SHORT$ HANA and the cross platform analytic software Lumira, and I am so glad to have the opportunity to obtain a co-op position in $COMPANY_NAME_SHORT$ as a software engineer.
+$PARAGRAPH$
 
 \vspace{5mm} 
 \newline

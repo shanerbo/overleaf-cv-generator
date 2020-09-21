@@ -30,14 +30,8 @@ def run() -> None:
         cv.set_receiver(receiver.get())
         cv.set_receiver_title(receiver_title.get())
         cv.set_receiver_last_name(receiver_last_name.get())
+        cv.set_paragraph(paragraph.get("1.0", "end"))
         cv.populate(output.get())
-
-    OptionList = [
-        "Mr.",
-        "Ms.",
-        "Miss.",
-        "Mrs."
-    ]
 
     master = tk.Tk()
     master.geometry("1090x800")
@@ -74,7 +68,9 @@ def run() -> None:
     receiver_title.grid(row=6, column=1, ipady=3, ipadx=55)
     receiver_last_name.grid(row=7, column=1, ipady=3, ipadx=55)
     input.grid(row=8, column=1, ipady=3, ipadx=55)
+    input.insert(0, "cv")
     output.grid(row=9, column=1, ipady=3, ipadx=55)
+    output.insert(0, "output")
     paragraph.grid(row=10, column=1, ipady=3, ipadx=1)
 
     validator_button = tk.Button(master,
